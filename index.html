@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Data retriever</title>
+<!-- CSS -->
+<link href="css/main.css" type="text/css" rel="stylesheet" />
+<!-- jQuery and jQuery UI for datepicker plugin -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Angular -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<link rel="stylesheet" href="js/jquery-ui/jquery-ui.min.css">
+<script src="js/jquery-ui/external/jquery/jquery.js"></script>
+<script src="js/jquery-ui/jquery-ui.min.js"></script>
+</head>
+<body ng-app="EmployeesApp">
+	<div class="main" ng-controller="MainController">
+		<div class= "container">
+			<p>Technologies:</p>
+			<div class="employees" ng-repeat="technology in employeeList.technologies">
+				<div class = "technology row">
+					<input type="checkbox" class="checkbox" onchange="valueChanged()"/>
+					<span>{{technology}}</span>
+					<input class="experience_since" style="display:none;"/>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- Make input field appear while checkbox is checked -->
+	<script type="text/javascript">
+	$(document).ready(function(){
+	    $('input[type="checkbox"]').click(function(){
+	        $(".experience_since").toggle();
+	    });
+			$(".experience_since").datepicker();
+	});
+	</script>
+
+
+	<!-- Modules -->
+    <script src="js/app.js"></script>
+
+    <!-- Controllers -->
+    <script src="js/controllers/MainController.js"></script>
+
+    <!-- Services -->
+	<script src="js/services/employees.js"></script>
+
+
+</body>
+
+</html>
